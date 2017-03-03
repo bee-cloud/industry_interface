@@ -1,0 +1,274 @@
+body {
+    font-family: "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
+    background-color: #E3E4E9
+}
+
+.dataTable td {
+    text-align: left;
+    white-space: nowrap
+}
+
+.dataTable th {
+    white-space: nowrap;
+    text-align: center
+}
+
+.table th {
+    text-align: center
+}
+
+td.highlight {
+    font-weight: bold;
+    color: red
+}
+
+.sel_list {
+    position: absolute;
+    top: 8px;
+    right: 10px
+}
+
+.headbar {
+    padding-bottom: 5px;
+    position: relative
+}
+
+.dataTable {
+    min-width: 800px
+}
+
+.dataTable th {
+    white-space: nowrap
+}
+
+.navbar-inverse {
+    background-color: #F4F6FC
+}
+
+.navbar {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+    border-radius: 2px
+}
+
+nav, #myHome {
+    color: #666 !important
+}
+
+.main {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+    border-radius: 2px
+}
+
+.user-menu a {
+    color: #666
+}
+
+.navbar-inverse .navbar-toggle .icon-bar {
+    background-color: #666
+}
+
+.nav a {
+    color: #4D6595
+}
+
+.sidebar ul.nav .active a, .sidebar ul.nav li.parent a.active, .sidebar ul.nav .active > a:hover, .sidebar ul.nav li.parent a.active:hover, .sidebar ul.nav .active > a:focus, .sidebar ul.nav li.parent a.active:focus {
+    color: #FC923F;
+    background-color: transparent
+}
+
+.breadcrumb {
+    background-color: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+    border-radius: 2px
+}
+
+#sidebar-collapse {
+    box-shadow: 2px 1px 2px rgba(0, 0, 0, .2);
+    border-radius: 2px;
+    overflow: visible
+}
+
+.row {
+    background-color: #fff
+}
+
+.row legend {
+    padding-left: 10px
+}
+
+.form-control {
+    border: 1px solid #ddd;
+    box-shadow: none
+}
+
+#navbar-toggle {
+    border: 0
+}
+
+#navbar-toggle:focus, #navbar-toggle:hover {
+    background-color: transparent
+}
+
+.navbar-header .navbar-brand span {
+    color: #4D6595
+}
+
+#main-body {
+    padding-left: 10px
+}
+
+.headbar .breadcrumb {
+    overflow-x: hidden
+}
+
+.navbar-brand {
+    padding-left: 10px;
+    padding-right: 5px
+}
+
+#navbar-toggle {
+    margin-right: 5px
+}
+
+.time-active {
+    color: #ffb53e
+}
+
+.alert-time {
+    padding: 15px 5px 15px 0;
+    margin-bottom: 0;
+    border: 1px solid transparent;
+    border-radius: 4px
+}
+
+.alert-info-time {
+    color: #31708f;
+    background-color: #e9ecf2;
+    border-color: #bce8f1
+}
+
+.label-time {
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 100%;
+    font-weight: 700;
+    line-height: 1;
+    color: #30a5ff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em
+}
+
+.label-default-time {
+    background-color: #eee
+}
+
+.gf-timepicker-dropdown {
+    margin: 0 0 0;
+    padding: 0 0;
+    float: right
+}
+
+.gf-timepicker-absolute-section {
+    width: 300px;
+    float: left;
+    border-right: solid 1px #555;
+    padding: 0 0 0 20px
+}
+
+.gf-timepicker-relative-section {
+    min-height: 258px;
+    float: left;
+    padding: 0 0 0 20px;
+}
+
+.gf-timepicker-relative-section ul {
+    list-style: none;
+    float: left;
+    margin: 0 60px 10px 0
+}
+
+ul, ol {
+    padding: 0
+}
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+.gf-timepicker-relative-section ul li {
+    line-height: 22px
+}
+
+.input-prepend input {
+    margin-bottom: 10px
+}
+
+#timePickerContainerPosition {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+#selectTime {
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .dataTables_wrapper {
+        overflow-x: auto
+    }
+
+    #timePicker {
+        overflow-x: auto
+    }
+
+    .row {
+        margin-left: -10px
+    }
+
+    .dataTables_wrapper .col-sm-12 {
+        padding-left: 5px
+    }
+
+    .alert-time {
+        padding-top: 457px;
+    }
+
+    #quickRanges {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        background-color: white;
+        width: 500px
+    }
+
+    #timeRangePosition {
+        position: absolute;
+        top: 258px;
+        left: 0px;
+        background-color: white;
+        width: 500px;
+    }
+
+    #row4 {
+        position: relative;
+        left: -340px;
+        background-color: white
+    }
+
+    #row1 {
+        position: relative;
+        left: 340px;
+        background-color: white
+    }
+
+    .gf-timepicker-absolute-section {
+        border-right: solid 0 #555
+    }
+}

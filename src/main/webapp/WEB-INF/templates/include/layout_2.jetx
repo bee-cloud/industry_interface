@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport"
+          content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>${title}</title>
+    <link href="//static.foneshare.cn/oss/datatables.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//static.foneshare.cn/oss/css/styles.css" rel="stylesheet" type="text/css"/>
+    <link href="${CONTEXT_PATH}/img/css/bootstrap.css" rel="stylesheet">
+    <link href="${CONTEXT_PATH}/img/css/tree.css" rel="stylesheet">
+    <link href="${CONTEXT_PATH}/img/css/jquery.datetimepicker.css" rel="stylesheet">
+    <link href="${CONTEXT_PATH}/img/css/ichart.css" rel="stylesheet">
+
+    <style>
+        #include("/include/global.min.css")
+        td.highlight {
+            font-weight: bold;
+            color: #ff0000;
+        }
+
+        .highlight {
+            background-color: #FFFF88 !important;
+        }
+
+        .highlightrow {
+            background-color: #FFFF88 !important;
+        }
+    </style>
+    #tag layout_block_default("headContent")#end
+</head>
+<body>
+    #include("nav.inc_2.jetx")
+<div id="main-body">
+    <div>
+        #include("alert.inc.jetx")
+        #tag layout_block_default("bodyContent")#end
+        #tag layout_block("mark")#end
+    </div>
+</div>
+<script src="${CONTEXT_PATH}/img/js/jquery.js"></script>
+<script src="${CONTEXT_PATH}/img/js/bootstrap.js"></script>
+<script src="${CONTEXT_PATH}/img/js/common.js"></script>
+<script src="//static.foneshare.cn/oss/datatables.min.js"></script>
+<script src="//static.foneshare.cn/oss/my97datepicker/WdatePicker.js"></script>
+<script src="${CONTEXT_PATH}/img/js/jquery.datetimepicker.js"></script>
+<script src="${CONTEXT_PATH}/img/js/ichart.1.2.min.js"></script>
+##<script src="//static.fs.cn/static/jquery.highlight-5.closure.js"></script>
+<script>
+    window._gtag = {traceId: '${requestScope.PV_TRACE_ID}', ajaxCount: 0};
+        #include("/include/global.min.js")
+
+    $(document).ready(function () {
+        $('li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
+        $(document).on('click', 'li.parent_li > span', function (e) {
+            var thisLabel = $(this);
+            var style = "";
+            var children = $(this).parent('li.parent_li').find(' > ul > li');
+            if (children.is(":visible")) {
+                style = "style='display:none'";
+            }
+            $.post(
+                    "${CONTEXT_PATH}/nav/getChildItem", {
+                        id: this.id
+                    }, function (data, textStatus) {
+                        if (data.length > 0) {
+                            var htmlContent = "";
+                            for (var i = 0; i < data.length; i++) {
+                                if (data[i].itemType == 0) {
+                                    htmlContent = htmlContent + "<li " + style + "><span id='" + data[i].id + "'><i class='icon-folder-open'></i>" + data[i].name + "</span>"
+                                            + "<ul></ul></li>"
+                                } else {
+                                    htmlContent = htmlContent + "<li " + style + "><span><i class='icon-leaf'></i><a href = '${CONTEXT_PATH}/dataType/listByNavId?navId=" + data[i].id + "&navName=" + data[i].name + "'>" + data[i].name + "</a></span></li>"
+                                }
+                            }
+                            thisLabel.next("ul").html(htmlContent);
+                            $('li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
+                        }
+                    }
+            );
+            var children = $(this).parent('li.parent_li').find(' > ul > li');
+            if (children.is(":visible")) {
+                children.hide('fast');
+                $(this).attr('title', 'Expand this branch').find(' > i').addClass('icon-plus-sign').removeClass('icon-minus-sign');
+            } else {
+                children.show('fast');
+                $(this).attr('title', 'Collapse this branch').find(' > i').addClass('icon-minus-sign').removeClass('icon-plus-sign');
+            }
+            e.stopPropagation();
+        });
+    });
+
+</script>
+#tag layout_block_default("scriptContent")#end
+</body>
+</html>

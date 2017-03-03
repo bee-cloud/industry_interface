@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/tx
+           http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <bean id="commentTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="commentDataSource"/>
+    </bean>
+
+    <bean id="commentDataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="${jdbc.driverClass}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+
+        <property name="initialSize" value="5"/>
+        <property name="minIdle" value="10"/>
+        <property name="maxWait" value="60000"/>
+        <property name="timeBetweenEvictionRunsMillis" value="60000"/>
+        <property name="minEvictableIdleTimeMillis" value="3600000"/>
+        <property name="validationQuery" value="SELECT 1"/>
+        <property name="testWhileIdle" value="true"/>
+        <property name="testOnBorrow" value="false"/>
+        <property name="testOnReturn" value="false"/>
+    </bean>
+
+    <bean id="commentSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="commentDataSource"/>
+        <property name="mapperLocations" value="classpath:mappings/*.xml"/>
+        <property name="typeAliasesPackage" value="com.fxiaoke.dataplatform.crm.cleantool.entity"/>
+        <property name="configLocation" value="classpath:mybatis/mybatis-config.xml"/>
+
+    </bean>
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="sqlSessionFactoryBeanName" value="commentSqlSessionFactory"/>
+        <property name="basePackage" value="com.fxiaoke.dataplatform.crm.cleantool.dao"/>
+    </bean>
+    <!--<aop:config>-->
+        <!--<aop:pointcut id="crmpointcut" expression="execution(* com.fxiaoke.dataplatform.crm.cleantool.service.*.*(..))"/>-->
+        <!--<aop:advisor advice-ref="txAdvice" pointcut-ref="crmpointcut"/>-->
+    <!--</aop:config>-->
+
+    <tx:advice id="txAdvice" transaction-manager="commentTransactionManager">
+        <tx:attributes>
+            <tx:method name="*" isolation="READ_COMMITTED" />
+        </tx:attributes>
+    </tx:advice>
+</beans>

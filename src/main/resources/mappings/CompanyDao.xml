@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fxiaoke.dataplatform.crm.cleantool.dao.CompanyDao">
+    <resultMap id="companyResultMap" type="com.fxiaoke.dataplatform.crm.cleantool.entity.Company">
+        <result column="term_start" javaType="string" property="termStart"/>
+        <result column="term_end"  javaType="string" property="teamEnd"/>
+        <result column="check"  javaType="string" property="checkDate" />
+        <result column="company_id"  javaType="string" property="keyNo" />
+        <result column="company_name"  javaType="string" property="name" />
+        <result column="serial_no"  javaType="string" property="no" />
+        <result column="belong_org"  javaType="string" property="belongOrg" />
+        <result column="oper_name" javaType="string" property="operName"/>
+        <result column="start" javaType="string" property="startDate"/>
+        <result column="end" javaType="string" property="endDate" />
+        <result column="status" javaType="string" property="status" />
+        <result column="province" javaType="string"  property="province" />
+        <result column="updated" javaType="string" property="updatedDate" />
+        <result column="credit_code" javaType="string" property="creditCode" />
+        <result column="regist_capi" javaType="string" property="registCapi"/>
+        <result column="regist_capi_desc" javaType="string" property="registCapiDesc"/>
+        <result column="econ_kind" javaType="string"  property="econKind"/>
+        <result column="address" javaType="string"  property="address" />
+        <result column="scope" javaType="string" property="scope" />
+        <result column="url" javaType="string" property="url" />
+        <result column="phone_number" javaType="string" property="phoneNumber" />
+        <result column="email" javaType="string" property="email" />
+    </resultMap>
+    <resultMap id="map" type="java.util.Map"/>
+
+    <select id="getDetailsByName" resultMap="companyResultMap">
+        select
+         term_start, term_end, check_date, company_id, company_name, serial_no, belong_org, oper_name, start, end, status, province, updated_date, credit_code, regist_capi, econ_kind, address, scope, regist_capi_desc, url, phone_number, email
+         FROM t_company WHERE  company_name=#{companyName}
+    </select>
+
+    <select id="getDetailsByKeyNo" resultMap="companyResultMap">
+        select
+         term_start, term_end, check_date, company_id, company_name, serial_no, belong_org, oper_name, start, end, status, province, updated_date, credit_code, regist_capi, econ_kind, address, scope, regist_capi_desc, url, phone_number, email
+         FROM t_company WHERE  company_id=#{keyNo}
+    </select>
+</mapper>

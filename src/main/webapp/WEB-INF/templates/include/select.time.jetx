@@ -1,0 +1,140 @@
+<div class="container alert-time alert-info-time col-lg-12 hide" role="alert" id="timePicker">
+    <div class="gf-timepicker-dropdown ng-scope"
+         ng-include="'app/features/dashboard/timepicker/dropdown.html'">
+        <div class="row pull-right ng-scope" id="timePickerContainerPosition">
+            <div class="gf-timepicker-absolute-section" id="timeRangePosition">
+                <h3>时间选择</h3>
+
+                <label class="small">From:</label>
+
+                <div class="input-prepend">
+                    <input type="text" id="startTime" value="$!{start}"/>
+					<span class="glyphicon glyphicon-calendar"
+                          onclick="WdatePicker({skin:'whyGreen',errDealMode:-1, dateFmt:'yyyy-MM-dd HH:mm:ss',vel:'00:00:00',el:'startTime', maxDate:'now', onpicked:function(dp){$('#startTime').change()}})"></span>
+                </div>
+
+                <label class="small">To:</label>
+
+                <div class="input-prepend">
+                    <div class="input-prepend">
+                        <input type="text" id="endTime" value="$!{end}"/>
+					<span class="glyphicon glyphicon-calendar"
+                          onclick="WdatePicker({skin:'whyGreen',errDealMode:-1, dateFmt:'yyyy-MM-dd HH:mm:ss',el:'endTime', maxDate:'now', onpicked:function(dp){$('#endTime').change()}})"></span>
+                    </div>
+                </div>
+
+                <div class="input-prepend">
+                    <button class="btn btn-inverse gf-timepicker-btn-apply" type="button"
+                            id="timeRange">
+                        Apply
+                    </button>
+                </div>
+            </div>
+
+            <div class="gf-timepicker-relative-section" id="quickRanges">
+                <h3>快速选择</h3>
+                <!-- end ngRepeat: group in ctrl.timeOptions -->
+                <ul class="ng-scope" id="row1">
+                    <!-- ngRepeat: option in group -->
+                    <li class="ng-scope">
+                        <a href="#">最近30天</a>
+                    </li>
+                    <li class="ng-scope">
+                        <a href="#">最近60天</a>
+                    </li>
+                    <li class="ng-scope">
+                        <a href="#">最近90天</a>
+                    </li>
+                    <li class="ng-scope">
+                        <a href="#">最近6个月</a>
+                    </li>
+                    <li class="ng-scope">
+                        <a href="#">最近1年</a>
+                    </li>
+                    <li class="ng-scope">
+                        <a href="#">最近2年</a>
+                    </li>
+                    <li class="ng-scope">
+                        <a href="#">最近5年</a>
+                    </li>
+                </ul>
+                <!-- end ngRepeat: group in ctrl.timeOptions -->
+                <ul class="ng-scope" id="row2">
+                    <!-- ngRepeat: option in group -->
+                    <li class="ng-scope">
+                        <a href="#">昨天</a>
+                    </li>
+                    <li class="ng-scope">
+                        <a href="#">前天</a>
+                    </li>
+                    <li class="ng-scope">
+                        <a href="#">七天前</a>
+                    </li>
+                    <li class="ng-scope">
+                        <a href="#">上周</a>
+                    </li>
+                    <li class="ng-scope">
+                        <a href="#">上个月</a>
+                    </li>
+                    <li class="ng-scope">
+                        <a href="#">去年</a>
+                    </li>
+                </ul>
+                <!-- end ngRepeat: group in ctrl.timeOptions -->
+                <ul class="ng-scope" id="row3">
+                    <!-- ngRepeat: option in group -->
+                    <li class="ng-scope">
+                        <a href="#">今天</a>
+                    </li>
+                    <li class="ng-scope">
+                        <a href="#">昨天至今</a>
+                    </li>
+                    <li class="ng-scope">
+                        <a href="#">本周</a>
+                    </li>
+                    <li class="ng-scope">
+                        <a href="#">本周至今</a>
+                    </li>
+                    <li class="ng-scope">
+                        <a href="#">本月</a>
+                    </li>
+                    <li class="ng-scope">
+                        <a href="#">今年</a>
+                    </li>
+                </ul>
+                <!-- end ngRepeat: group in ctrl.timeOptions -->
+                <ul class="ng-scope" id="row4">
+                    <!-- ngRepeat: option in group -->
+                    <li class="ng-scope">
+                        <a href="#">最近5分钟</a>
+                    </li>
+                    <li class="ng-scope active">
+                        <a href="#">最近15分钟</a>
+                    </li>
+                    <li class="ng-scope">
+                        <a href="#">最近30分钟</a>
+                    </li>
+                    <li class="ng-scope">
+                        <a href="#">最近1小时</a>
+                    </li>
+                    <li class="ng-scope">
+                        <a href="#">最近6小时</a>
+                    </li>
+                    <li class="ng-scope">
+                        <a href="#">最近12小时</a>
+                    </li>
+                    <li class="ng-scope">
+                        <a href="#">最近24小时</a>
+                    </li>
+                    <li class="ng-scope">
+                        <a href="#">最近7天</a>
+                    </li>
+                </ul>
+                <!-- end ngRepeat: group in ctrl.timeOptions -->
+            </div>
+
+        </div>
+        <div class="clearfix ng-scope"></div>
+
+    </div>
+</div>
