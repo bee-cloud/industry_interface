@@ -23,6 +23,7 @@
         <result column="scope" javaType="string" property="scope" />
         <result column="url" javaType="string" property="url" />
         <result column="phone_number" javaType="string" property="phoneNumber" />
+        <result column="mobile" javaType="string" property="mobile" />
         <result column="email" javaType="string" property="email" />
     </resultMap>
     <resultMap id="map" type="java.util.Map"/>

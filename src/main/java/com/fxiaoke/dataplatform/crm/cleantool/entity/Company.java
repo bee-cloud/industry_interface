@@ -30,5 +30,6 @@ public class Company {
     private String scope;
     private String url;
     private String phoneNumber;
+    private String mobile;
     private String email;
 }
