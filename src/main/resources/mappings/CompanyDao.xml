@@ -4,14 +4,14 @@
     <resultMap id="companyResultMap" type="com.fxiaoke.dataplatform.crm.cleantool.entity.Company">
         <result column="term_start" javaType="string" property="termStart"/>
         <result column="term_end"  javaType="string" property="teamEnd"/>
-        <result column="check"  javaType="string" property="checkDate" />
+        <result column="checked"  javaType="string" property="checkDate" />
         <result column="company_id"  javaType="string" property="keyNo" />
         <result column="company_name"  javaType="string" property="name" />
-        <result column="serial_no"  javaType="string" property="no" />
+        <result column="regist_no"  javaType="string" property="no" />
         <result column="belong_org"  javaType="string" property="belongOrg" />
         <result column="oper_name" javaType="string" property="operName"/>
-        <result column="start" javaType="string" property="startDate"/>
-        <result column="end" javaType="string" property="endDate" />
+        <result column="started" javaType="string" property="startDate"/>
+        <result column="ended" javaType="string" property="endDate" />
         <result column="status" javaType="string" property="status" />
         <result column="province" javaType="string"  property="province" />
         <result column="updated" javaType="string" property="updatedDate" />
@@ -28,14 +28,12 @@
     <resultMap id="map" type="java.util.Map"/>
 
     <select id="getDetailsByName" resultMap="companyResultMap">
-        select
-         term_start, term_end, check_date, company_id, company_name, serial_no, belong_org, oper_name, start, end, status, province, updated_date, credit_code, regist_capi, econ_kind, address, scope, regist_capi_desc, url, phone_number, email
-         FROM t_company WHERE  company_name=#{companyName}
+        select *
+        FROM t_company WHERE  company_name=#{companyName}
     </select>
 
     <select id="getDetailsByKeyNo" resultMap="companyResultMap">
-        select
-         term_start, term_end, check_date, company_id, company_name, serial_no, belong_org, oper_name, start, end, status, province, updated_date, credit_code, regist_capi, econ_kind, address, scope, regist_capi_desc, url, phone_number, email
-         FROM t_company WHERE  company_id=#{keyNo}
+        select *
+        FROM t_company WHERE  company_id=#{keyNo}
     </select>
 </mapper>

@@ -33,8 +33,8 @@ public class CrmEnterInfoController {
     @RequestMapping(value="/generateCompanyIdAndNameToES")
     @ResponseBody
     public String generateCompanyIdAndNamEToES(){
-               String esSql = String.format(" select distinct company_id,company_name, oper_name," +
-                " status ,serial_no from dw_bds_db_crm.t_company  ");
+        String esSql = String.format(" select company_id,company_name, oper_name," +
+                " status ,regist_no from dw_bds_db_crm.tmp_company1  ");
         elasticsearchService.saveToEs(esSql,"crmenterinfo/idandname");
         return  "submit Spark task";
     }
@@ -50,9 +50,9 @@ public class CrmEnterInfoController {
     @RequestMapping(value="/Search")
     @ResponseBody
     public JSONObject queryCompanyByKey(@RequestParam("keyword") String keyword,
-                              @RequestParam("pageIndex") int from,
-                              @RequestParam("pageSize") int size,
-                              Model model){
+                                        @RequestParam("pageIndex") int from,
+                                        @RequestParam("pageSize") int size,
+                                        Model model){
         from = from -1;
         List<Map<String, Object>> result = elasticsearchService.search( ES_INDEX,  ES_TYPE, keyword, from,size);
         JSONObject resultJson = new JSONObject();
@@ -75,7 +75,7 @@ public class CrmEnterInfoController {
                 company.put("Name",r.get("company_name")==null?"":r.get("company_name").toString());
                 company.put("OperName",r.get("oper_name")==null?"":r.get("oper_name").toString());
                 company.put("Status",r.get("status")==null?"":r.get("status").toString());
-                company.put("No",r.get("serial_no")==null?"":r.get("serial_no").toString());
+                company.put("No",r.get("regist_no")==null?"":r.get("regist_no").toString());
                 array.add(company);
             });
 
@@ -93,7 +93,7 @@ public class CrmEnterInfoController {
     @RequestMapping(value="/GetDetailsByName")
     @ResponseBody
     public JSONObject getDetailsByName(@RequestParam("keyword") String keyword,
-                                        Model model){
+                                       Model model){
         JSONObject result = companyService.getDetailsByName(keyword);
         return  result;
     }
@@ -107,7 +107,7 @@ public class CrmEnterInfoController {
     @RequestMapping(value="/GetDetailsByKeyNo")
     @ResponseBody
     public JSONObject getDetailsByKeyNo(@RequestParam("KeyNo") String keyNo,
-                                       Model model){
+                                        Model model){
         JSONObject result = companyService.getDetailsByKeyNo(keyNo);
         return  result;
     }

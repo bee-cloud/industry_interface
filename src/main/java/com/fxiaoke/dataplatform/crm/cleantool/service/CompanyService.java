@@ -54,7 +54,8 @@ public class CompanyService {
             company.put("Province",info.getProvince()==null?"":info.getProvince());
             company.put("UpdatedDate",info.getUpdatedDate()==null?"":info.getUpdatedDate());
             company.put("CreditCode",info.getCreditCode()==null?"":info.getCreditCode());
-            company.put("RegistCapi",(info.getRegistCapi()==null||"-10000".equals(info.getRegistCapi()))?"":(info.getRegistCapi()+info.getRegistCapiDesc()));
+            String registCapiDesc = info.getRegistCapiDesc()==null?"":info.getRegistCapiDesc();
+            company.put("RegistCapi",(info.getRegistCapi()==null||"-10000".equals(info.getRegistCapi()))?"":(info.getRegistCapi()+registCapiDesc));
             company.put("EconKind",info.getEconKind()==null?"":info.getEconKind());
             company.put("Address",info.getAddress()==null?"":info.getAddress());
             company.put("Scope",info.getScope()==null?"":info.getScope());
