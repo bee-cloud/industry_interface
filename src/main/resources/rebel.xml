@@ -2,13 +2,13 @@
 <application generated-by="intellij" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.zeroturnaround.com" xsi:schemaLocation="http://www.zeroturnaround.com http://update.zeroturnaround.com/jrebel/rebel-2_1.xsd">
 
 	<classpath>
-		<dir name="D:/Git_Prj/crm_auto_clustering_new/target/classes">
+		<dir name="D:/Git_Prj/industry_data_interface/target/classes">
 		</dir>
 	</classpath>
 
 	<web>
 		<link target="/">
-			<dir name="D:/Git_Prj/crm_auto_clustering_new/src/main/webapp">
+			<dir name="D:/Git_Prj/industry_data_interface/src/main/webapp">
 			</dir>
 		</link>
 	</web>
