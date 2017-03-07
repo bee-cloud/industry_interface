@@ -33,8 +33,8 @@ public class CrmEnterInfoController {
     private final String ES_INDEX = "crmenterinfo";
     private final String ES_TYPE = "idandname";
     private final Integer CRM_RESULT_CACHE = 24*60*60;   //缓存数据有效时长
-    private final Integer ES_MAX_CALL = 1000;   //缓存数据有效时长
-    private final Integer MYSQL_MAX_CALL = 1000;   //缓存数据有效时长
+    private final Integer ES_MAX_CALL = 10;   //缓存数据有效时长
+    private final Integer MYSQL_MAX_CALL = 10;   //缓存数据有效时长
 
     /**
      * HIVE中存有企查查的企业名单，查出后放入ES
@@ -116,11 +116,12 @@ public class CrmEnterInfoController {
         String key = getKey(ei,"mysql");
         int count = jedis.get(key)==null?0:Integer.valueOf(jedis.get(key));
         JSONObject resultJson = new JSONObject();
-        if(count>ES_MAX_CALL){
+        if(count>MYSQL_MAX_CALL){
             resultJson.put("Status",201);
             resultJson.put("Result",null);
         }else{
             resultJson = companyService.getDetailsByName(keyword);
+            jedis.setex(key,CRM_RESULT_CACHE,String.valueOf(++count));
         }
         return  resultJson;
     }
@@ -140,11 +141,12 @@ public class CrmEnterInfoController {
         String key = getKey(ei,"mysql");
         int count = jedis.get(key)==null?0:Integer.valueOf(jedis.get(key));
         JSONObject resultJson = new JSONObject();
-        if(count>ES_MAX_CALL){
+        if(count>MYSQL_MAX_CALL){
             resultJson.put("Status",201);
             resultJson.put("Result",null);
         }else{
             resultJson = companyService.getDetailsByKeyNo(keyNo);
+            jedis.setex(key,CRM_RESULT_CACHE,String.valueOf(++count));
         }
         return  resultJson;
     }
