@@ -38,7 +38,7 @@ import java.util.Map;
 public class ElasticsearchService {
 
     private static final Logger LOG = LoggerFactory.getLogger(ElasticsearchService.class);
-    private static final String esMappingId = "ESID";
+    private static final String ES_CONFIG = "industry-elasticsearch";
 
     @Autowired
     private SparkSubmitService sparkSubmitService;
@@ -55,13 +55,13 @@ public class ElasticsearchService {
         args.add(sql);
         args.add(index);
         args.add(profile);
-        args.add(esMappingId);
+        args.add(ES_CONFIG);
 
         try {
             //String classpath = this.getClass().getResource("/").toString();
             //String jar = classpath + "/spark-sql-1.0.0-SNAPSHOT.jar";
             String sparkJar = ConfigFactory.getInstance().getConfig("mlplatform").get("sparkJar",
-                    "hdfs:///AUX-LIB/mlplatform/spark-sql-1.0.1-SNAPSHOT.jar");
+                    "hdfs:///AUX-LIB/mlplatform/spark-sql-1.0.2-SNAPSHOT.jar");
             sparkSubmitService.submit(sparkJar, "com.fxiaoke.spark.sql.java.SqlExec", args);
         } catch (Throwable e) {
             LOG.error("Cannot submit spark sql {} ", sql, e);
