@@ -39,6 +39,8 @@ public class ElasticsearchService {
 
     private static final Logger LOG = LoggerFactory.getLogger(ElasticsearchService.class);
     private static final String ES_CONFIG = "industry-elasticsearch";
+    private static final String DEFAULT_JAR = "hdfs:///AUX-LIB/mlplatform/spark-sql-1.0.2-SNAPSHOT.jar";
+    private static final String MAINCLASS = "com.fxiaoke.spark.sql.java.SqlExec";
 
     @Autowired
     private SparkSubmitService sparkSubmitService;
@@ -58,11 +60,8 @@ public class ElasticsearchService {
         args.add(ES_CONFIG);
 
         try {
-            //String classpath = this.getClass().getResource("/").toString();
-            //String jar = classpath + "/spark-sql-1.0.0-SNAPSHOT.jar";
-            String sparkJar = ConfigFactory.getInstance().getConfig("mlplatform").get("sparkJar",
-                    "hdfs:///AUX-LIB/mlplatform/spark-sql-1.0.2-SNAPSHOT.jar");
-            sparkSubmitService.submit(sparkJar, "com.fxiaoke.spark.sql.java.SqlExec", args);
+            String sparkJar = ConfigFactory.getInstance().getConfig("mlplatform").get("sparkJar", DEFAULT_JAR);
+            sparkSubmitService.submit(sparkJar,MAINCLASS , args);
         } catch (Throwable e) {
             LOG.error("Cannot submit spark sql {} ", sql, e);
         }

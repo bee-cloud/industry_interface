@@ -34,7 +34,7 @@ public class CrmEnterInfoController {
     @ResponseBody
     public String generateCompanyIdAndNamEToES(){
         String esSql = String.format(" select company_id,company_name, oper_name," +
-                " status ,regist_no from dw_bds_db_crm.tmp_company1  ");
+                " status ,regist_no from dw_bds_db_crm.tmp_company  ");
         elasticsearchService.saveToEs(esSql,"crmenterinfo/idandname");
         return  "submit Spark task";
     }
