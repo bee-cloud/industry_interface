@@ -38,7 +38,7 @@ import java.util.Map;
 public class ElasticsearchService {
 
     private static final Logger LOG = LoggerFactory.getLogger(ElasticsearchService.class);
-    private static final String ES_CONFIG = "industry-elasticsearch";
+    public static final String ES_CONFIG = "industry-elasticsearch";
     private static final String DEFAULT_JAR = "hdfs:///AUX-LIB/mlplatform/spark-sql-1.0.2-SNAPSHOT.jar";
     private static final String MAINCLASS = "com.fxiaoke.spark.sql.java.SqlExec";
 

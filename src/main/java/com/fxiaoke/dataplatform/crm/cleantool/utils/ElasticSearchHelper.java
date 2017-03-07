@@ -1,5 +1,6 @@
 package com.fxiaoke.dataplatform.crm.cleantool.utils;
 
+import com.fxiaoke.dataplatform.crm.cleantool.service.ElasticsearchService;
 import com.github.autoconf.ConfigFactory;
 import com.github.autoconf.api.IConfig;
 import com.google.common.base.Preconditions;
@@ -34,7 +35,7 @@ public class ElasticSearchHelper {
   private static long timeout = 10000L;
 
   static {
-    ConfigFactory.getInstance().getConfig("datapt-elasticsearch", ElasticSearchHelper::loadConfig);
+    ConfigFactory.getInstance().getConfig(ElasticsearchService.ES_CONFIG, ElasticSearchHelper::loadConfig);
   }
 
   private static void loadConfig(IConfig config) {
