@@ -24,21 +24,21 @@
 <div class="row" style="padding:9px 0px 5px 25px;">
     <div>
         <span class="functions">
-            从ES中获取企业名单列表 : /enterinfo/Search?keyword=NAME&pageSize=SIZE&pageIndex=INDEX
+            从ES中获取企业名单列表 : /enterinfo/Search?keyword=NAME&pageSize=SIZE&pageIndex=INDEX&ei=EI
         </span>
     </div>
 </div>
 <div class="row" style="padding:9px 0px 5px 25px;">
     <div>
         <span class="functions">
-            根据企业名称获取企业详细信息 : /enterinfo/GetDetailsByName?keyword=NAME
+            根据企业名称获取企业详细信息 : /enterinfo/GetDetailsByName?keyword=NAME&ei=EI
         </span>
     </div>
 </div>
 <div class="row" style="padding:9px 0px 5px 25px;">
     <div>
         <span class="functions">
-            根据企业ID获取企业详细信息 : /enterinfo/GetDetailsByKeyNo?KeyNo=NO
+            根据企业ID获取企业详细信息 : /enterinfo/GetDetailsByKeyNo?KeyNo=NO&ei=EI
         </span>
     </div>
 </div>
@@ -77,7 +77,7 @@
             var keyword = $('#keyword').val();
             var from = $('#from').val();
             var size = $('#size').val();
-            window.location.href='${CONTEXT_PATH}/enterinfo/Search?keyword='+keyword+"&pageIndex="+from+"&pageSize="+size;
+            window.location.href='${CONTEXT_PATH}/enterinfo/Search?keyword='+keyword+"&pageIndex="+from+"&pageSize="+size+"&ei=1";
         });
     });
 </script>
