@@ -68,7 +68,7 @@ public class CompanyService {
             webSite.add(web);
             contactInfo.put("WebSite",webSite);
             String mobile =info.getMobile()==null?"":info.getMobile();
-            contactInfo.put("PhoneNumber",info.getPhoneNumber()==null||"".equals(info.getPhoneNumber().trim())?mobile:info.getPhoneNumber());
+            contactInfo.put("PhoneNumber",(info.getPhoneNumber()==null||"".equals(info.getPhoneNumber().trim()))?mobile:info.getPhoneNumber());
             contactInfo.put("Email",info.getEmail()==null?"":info.getEmail());
             company.put("ContactInfo",contactInfo);
             resultJson.put("Result",company);
