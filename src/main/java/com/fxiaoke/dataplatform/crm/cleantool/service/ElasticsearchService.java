@@ -60,7 +60,7 @@ public class ElasticsearchService {
         args.add(ES_CONFIG);
 
         try {
-            String sparkJar = ConfigFactory.getInstance().getConfig("mlplatform").get("sparkJar", DEFAULT_JAR);
+            String sparkJar = ConfigFactory.getInstance().getConfig(ES_CONFIG).get("sparkJar", DEFAULT_JAR);
             sparkSubmitService.submit(sparkJar,MAINCLASS , args);
         } catch (Throwable e) {
             LOG.error("Cannot submit spark sql {} ", sql, e);
