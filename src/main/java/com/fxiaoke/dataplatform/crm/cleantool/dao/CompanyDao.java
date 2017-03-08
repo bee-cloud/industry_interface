@@ -15,5 +15,5 @@ public interface CompanyDao extends CrudDao<Company> {
 
     public List<Company> getDetailsByName(@Param("companyName") String companyName);
 
-    public List<Company> getDetailsByKeyNo(@Param("keyNo") String keyNo);
+    public List<Company> getDetailsByKeyNo(@Param("keyNo") String keyNo,@Param("id") String id);
 }

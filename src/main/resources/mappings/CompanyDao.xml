@@ -35,6 +35,6 @@
 
     <select id="getDetailsByKeyNo" resultMap="companyResultMap">
         select *
-        FROM t_company WHERE  company_id=#{keyNo}
+        FROM t_company_${id} WHERE  company_id=#{keyNo}
     </select>
 </mapper>
