@@ -27,7 +27,7 @@ public class CompanyService {
 
     public JSONObject getDetailsByKeyNo(String keyNo) {
         String id = "";
-        int tabId = Integer.parseInt(keyNo.substring(keyNo.length()-2,keyNo.length()), 16);
+        int tabId = Integer.parseInt(keyNo.substring(keyNo.length()-2,keyNo.length()), 16)%100;
         if(tabId<10)
             id = "0"+tabId;
         else
@@ -84,6 +84,8 @@ public class CompanyService {
 
     public static void main(String[] args){
         String str  =  "09c64ed4c5ef0db94fa8d7ef82726b6d";
+        System.out.println(100%100);
+
         System.out.println(Integer.parseInt(str.substring(str.length()-2,str.length()), 16));
     }
 }
