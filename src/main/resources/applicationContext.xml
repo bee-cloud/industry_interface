@@ -12,7 +12,7 @@
     <!-- blocked autowire -->
     <context:annotation-config/>
     <import resource="classpath:spring/spring-db.xml"/>
-    <import resource="classpath:spring/spring-shiro.xml"/>
+    <!--<import resource="classpath:spring/spring-shiro.xml"/>-->
     <import resource="classpath:spring-redis.xml"/>
 
     <!-- 使用全局的日期格式化 -->

@@ -19,7 +19,7 @@
         <guava.version>19.0</guava.version>
         <joda-time.version>2.3</joda-time.version>
         <junit.version>4.11</junit.version>
-        <shiro.version>1.2.4</shiro.version>
+        <!--<shiro.version>1.2.4</shiro.version>-->
         <velocity.version>1.7</velocity.version>
         <velocity-tools.version>2.0</velocity-tools.version>
         <jetty.version>9.0.1.v20130408</jetty.version>
@@ -190,11 +190,11 @@
         </dependency>
 
         <!-- SECURITY begin -->
-        <dependency>
-            <groupId>com.github.colin-lee</groupId>
-            <artifactId>shiro-spring-support</artifactId>
-            <version>1.0.5</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.github.colin-lee</groupId>-->
+            <!--<artifactId>shiro-spring-support</artifactId>-->
+            <!--<version>1.0.5</version>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
