@@ -33,8 +33,8 @@ public class CrmEnterInfoController {
     private final String ES_INDEX = "crmenterinfo";
     private final String ES_TYPE = "idandname";
     private final Integer CRM_RESULT_CACHE = 24*60*60;   //缓存数据有效时长
-    private final Integer ES_MAX_CALL = 2000;   //缓存数据有效时长
-    private final Integer MYSQL_MAX_CALL = 2000;   //缓存数据有效时长
+    private final Integer ES_MAX_CALL = 2000;   //es接口调用次数
+    private final Integer MYSQL_MAX_CALL = 2000;   //mysql接口调用次数
 
     /**
      * HIVE中存有企查查的企业名单，查出后放入ES
