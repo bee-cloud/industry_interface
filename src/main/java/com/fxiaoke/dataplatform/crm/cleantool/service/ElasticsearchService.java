@@ -50,7 +50,7 @@ public class ElasticsearchService {
         Preconditions.checkNotNull(index, "elasticsearch index should not be empty.");
 
         // delete index first
-        //ElasticSearchHelper.deleteIndex(index);
+        ElasticSearchHelper.deleteIndex(index);
 
         String profile = ConfigHelper.getProcessInfo().getProfile();
         List<String> args = Lists.newLinkedList();
